@@ -28,7 +28,7 @@ jobs:
         # 获取最新标签的所有资产下载链接
         assets=$(curl -s https://api.github.com/repos/JingMatrix/LSPosed/releases/tags/$latest_tag | jq -r '.assets[].browser_download_url')
 
-        # 创建发布（release）
+        # 创建发布（release）并上传文件到 https://github.com/klcb2010/LSPosed/releases/
         release_response=$(curl -s -X POST https://api.github.com/repos/klcb2010/LSPosed/releases \
           -H "Authorization: token $GITHUB_TOKEN" \
           -d "{
